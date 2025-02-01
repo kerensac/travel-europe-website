@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-europe-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: travel-europe-website
+  template:
+    metadata:
+      labels:
+        app: travel-europe-website
+    spec:
+      containers:
+      - name: travel-europe-website
+        image: gcr.io/careful-sphinx-448917-d6/travel-europe-website:latest
+        ports:
+        - containerPort: 80
